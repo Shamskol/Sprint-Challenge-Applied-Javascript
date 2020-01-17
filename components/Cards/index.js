@@ -17,3 +17,33 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+const component =  document.querySelector(".cards");
+function makingAComponent(data) {
+  const card = document.createElement("div");
+  const headline = document.createElement("div");
+  const author = document.createElement("div");
+  const name = document.createElement("div");
+  const imgContainer = document.createElement("img");
+  const imgAuthors = document.createElement("img");
+  const authorsName = document.createElement("span");
+  
+  
+  card.append(headline);
+  card.append(author);
+  author.append(imgContainer);
+  author.append(imgAuthors);
+  card.append(authorsName);
+
+  card.classList.add("card");
+  headline.classList.add("headline");
+  author.classList.add("author");
+  name.classList.add("name");
+  authorsName.classList.add("authorsName")
+
+  imgAuthors.src = data.avatar_url;
+  headline.textContent = data.headline;
+  author.textContent = data.author;
+  authorsName.textContent = data.authorsName;
+
+
+
