@@ -21,11 +21,11 @@
 axios
   .get("https://lambda-times-backend.herokuapp.com/articles")
   .then(response => {
-    // console.log(response);
+    console.log(response);
     const articles = response.data.articles;
     Object.keys(articles).forEach(category => {
       articles[category].forEach(article =>
-        cardsContainer.appendChild(
+        cardsContainer.append(
           cardCreator(article.headline, article.authorPhoto, article.authorName)
         )
       );
@@ -34,33 +34,33 @@ axios
 
   const cardsContainer = document.querySelector('.cards-container');
 
-  function cardCreator(articleHeadline, articleAuthorPhoto, articleAuthorName) {
-    const cardDiv = document.createElement("div");
+  function cardCreator(articleHeadline, authorPhoto, authorName) {
+    const card = document.createElement("div");
     const headline = document.createElement("div");
     const author = document.createElement("div");
     const imgContainer = document.createElement("div");
     const authorImg = document.createElement("img");
-    const writtenBy = document.createElement("span");
+    const byAuthor = document.createElement("span");
 
-    cardDiv.classList.add("card");
+    card.classList.add("card");
     headline.classList.add("headline");
     author.classList.add("author");
     imgContainer.classList.add("img-container");
   
-    authorImg.src = articleAuthorPhoto;
+    authorImg.src = authorPhoto;
   
     headline.textContent = articleHeadline;
-    writtenBy.textContent = `By: ${articleAuthorName}`;
+    byAuthor.textContent = `By: ${authorName}`;
   
-    cardDiv.appendChild(headline);
-    cardDiv.appendChild(author);
-    author.appendChild(imgContainer);
-    imgContainer.appendChild(authorImg);
-    author.appendChild(writtenBy);
+    card.append(headline);
+    card.append(author);
+    author.append(imgContainer);
+    imgContainer.append(authorImg);
+    author.append(byAuthor);
   
-    console.log(cardDiv);
+    console.log(card);
   
-    return cardDiv;
+    return card;
   }
   
   

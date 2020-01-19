@@ -10,7 +10,7 @@
 // And add it to the DOM in the .header-container component
 const headerContainer = document.querySelector(".header-container");
 
-headerContainer.append(Header());
+headerContainer.appendChild(Header());
 
 
 function Header() {
@@ -23,9 +23,9 @@ function Header() {
     date.classList.add("date");
     temp.classList.add("temp");
 
-    header.append(date);
-    header.append(title);
-    header.append(temp);
+    header.appendChild(date);
+    header.appendChild(title);
+    header.appendChild(temp);
 
 
 
@@ -34,7 +34,7 @@ function Header() {
     temp.textContent = "98°";
 
     console.log(header);
-
+return header;
 }
 
 
